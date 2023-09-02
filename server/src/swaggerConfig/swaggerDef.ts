@@ -5,9 +5,9 @@ const options: swaggerJSDoc.Options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'ArboControl',
+      title: 'Quiz-chemistry',
       description:
-        'ArboControle is a reporting system for arbovirus complaints aimed at strengthening surveillance and combating vector-borne diseases, such as dengue, Zika, and chikungunya, in our municipality.',
+        'Quiz chemistry backend',
       version: '1.0.1',
     },
     basePath: '/',
