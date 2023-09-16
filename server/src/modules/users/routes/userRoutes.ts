@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { isAuthenticated } from '../../../shared/middlewares/isAuthenticated';
 import { CreateUserController } from '../controllers/CreateUserController';
 import { AuthUserController } from '../controllers/AuthUserController';
+import { GetScoreController } from '../controllers/GetScoreController';
 const usersRouter = Router();
 
 /**
@@ -98,5 +99,7 @@ usersRouter.post('/', new CreateUserController().handle);
  *         description: Internal Server Error - An error occurred on the server
  */
 usersRouter.post('/auth', new AuthUserController().handle);
+
+usersRouter.get('/score', new GetScoreController().handle);
 
 export default usersRouter;
