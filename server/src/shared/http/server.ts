@@ -38,5 +38,7 @@ app.use(
 );
 
 app.listen(8080, () => {
-  console.log('Server started on port 8080!');
+  console.log(
+    '\n\nServer started on http://localhost:8080.\nYou can also explore the API routes at http://localhost:8080/api-docs.',
+  );
 });

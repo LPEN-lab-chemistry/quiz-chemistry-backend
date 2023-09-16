@@ -6,8 +6,7 @@ const options: swaggerJSDoc.Options = {
     openapi: '3.0.0',
     info: {
       title: 'Quiz-chemistry',
-      description:
-        'Quiz chemistry backend',
+      description: 'Quiz chemistry backend',
       version: '1.0.1',
     },
     basePath: '/',
@@ -21,7 +20,10 @@ const options: swaggerJSDoc.Options = {
       },
     },
   },
-  apis: [path.resolve(__dirname, '..', './shared', './http', './routes', '*')],
+  apis: [
+    path.resolve(__dirname, '..', './shared', './http', './routes', '*'),
+    path.resolve(__dirname, '..', './modules', './users', './routes', '*'),
+  ],
 };
 
 const specs = swaggerJSDoc(options);

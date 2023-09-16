@@ -10,3 +10,68 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model user {
+  id       String @id @default(uuid())
+  name     String
+  email    String
+  password String
+  score    Int
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("user")
+}
+
+model question {
+  id               Int    @id @default(autoincrement())
+  description      String
+  points           Int
+  responseQuestion String
+
+  optionA String?
+  optionB String?
+  optionC String?
+  optionD String?
+  optionE String?
+
+  isDeleted Boolean @default(false)
+
+  theme   theme? @relation(fields: [themeId], references: [id])
+  themeId Int?
+
+  level   level? @relation(fields: [levelId], references: [id])
+  levelId Int?
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("question")
+}
+
+model level {
+  id        Int     @id @default(autoincrement())
+  name      String
+  isDeleted Boolean @default(false)
+
+  question question[]
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("level")
+}
+
+model theme {
+  id        Int     @id @default(autoincrement())
+  name      String
+  isDeleted Boolean @default(false)
+
+  question question[]
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("theme")
+}
